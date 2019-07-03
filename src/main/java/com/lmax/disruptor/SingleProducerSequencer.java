@@ -19,19 +19,18 @@ import java.util.concurrent.locks.LockSupport;
 
 import com.lmax.disruptor.util.Util;
 
-abstract class SingleProducerSequencerPad extends AbstractSequencer
+abstract class AbstractSingleProducerSequencerPad extends AbstractSequencer
 {
     protected long p1, p2, p3, p4, p5, p6, p7;
 
-    SingleProducerSequencerPad(int bufferSize, WaitStrategy waitStrategy)
+    AbstractSingleProducerSequencerPad(int bufferSize, WaitStrategy waitStrategy)
     {
         super(bufferSize, waitStrategy);
     }
 }
 
-abstract class SingleProducerSequencerFields extends SingleProducerSequencerPad
-{
-    SingleProducerSequencerFields(int bufferSize, WaitStrategy waitStrategy)
+abstract class AbstractSingleProducerSequencerFields extends AbstractSingleProducerSequencerPad {
+    AbstractSingleProducerSequencerFields(int bufferSize, WaitStrategy waitStrategy)
     {
         super(bufferSize, waitStrategy);
     }
@@ -51,7 +50,7 @@ abstract class SingleProducerSequencerFields extends SingleProducerSequencerPad
  * to {@link Sequencer#publish(long)} is made.</p>
  */
 
-public final class SingleProducerSequencer extends SingleProducerSequencerFields
+public final class SingleProducerSequencer extends AbstractSingleProducerSequencerFields
 {
     protected long p1, p2, p3, p4, p5, p6, p7;
 

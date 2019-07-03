@@ -54,8 +54,8 @@ public class EventPollerTest
 
         final EventPoller.Handler<byte[]> handler = new EventPoller.Handler<byte[]>()
         {
-            public boolean onEvent(byte[] event, long sequence, boolean endOfBatch) throws Exception
-            {
+            @Override
+            public boolean onEvent(byte[] event, long sequence, boolean endOfBatch) throws Exception {
                 events.add(event);
                 return !endOfBatch;
             }

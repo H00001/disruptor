@@ -96,8 +96,8 @@ public final class Util
         {
             final PrivilegedExceptionAction<Unsafe> action = new PrivilegedExceptionAction<Unsafe>()
             {
-                public Unsafe run() throws Exception
-                {
+                @Override
+                public Unsafe run() throws Exception {
                     Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
                     theUnsafe.setAccessible(true);
                     return (Unsafe) theUnsafe.get(null);
