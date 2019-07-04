@@ -78,10 +78,7 @@ public final class MultiProducerSequencer extends AbstractSequencer
             long minSequence = Util.getMinimumSequence(gatingSequences, cursorValue);
             gatingSequenceCache.set(minSequence);
 
-            if (wrapPoint > minSequence)
-            {
-                return false;
-            }
+            return wrapPoint <= minSequence;
         }
 
         return true;
@@ -133,7 +130,9 @@ public final class MultiProducerSequencer extends AbstractSequencer
 
                 if (wrapPoint > gatingSequence)
                 {
-                    LockSupport.parkNanos(1); // TODO, should we spin based on the wait strategy?
+                    LockSupport.parkNanos(1);
+                    // TODO, should we spin based on the wait strategy?
+
                     continue;
                 }
 

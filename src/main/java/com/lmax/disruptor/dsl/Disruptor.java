@@ -393,11 +393,7 @@ public class Disruptor<T>
     public RingBuffer<T> start()
     {
         checkOnlyStartedOnce();
-        for (final ConsumerInfo consumerInfo : consumerRepository)
-        {
-            consumerInfo.start(executor);
-        }
-
+        consumerRepository.forEach(t -> t.start(executor));
         return ringBuffer;
     }
 
@@ -406,10 +402,7 @@ public class Disruptor<T>
      */
     public void halt()
     {
-        for (final ConsumerInfo consumerInfo : consumerRepository)
-        {
-            consumerInfo.halt();
-        }
+        consumerRepository.forEach(ConsumerInfo::halt);
     }
 
     /**

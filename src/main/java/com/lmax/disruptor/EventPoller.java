@@ -17,6 +17,9 @@ public class EventPoller<T>
 
     public enum PollState
     {
+        /**
+         *
+         */
         PROCESSING, GATING, IDLE
     }
 

@@ -44,11 +44,11 @@ public class BasicExecutor implements Executor
     {
         final StringBuilder sb = new StringBuilder();
 
-        final ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+        final ThreadMXBean threadMxBean = ManagementFactory.getThreadMXBean();
 
         for (Thread t : threads)
         {
-            ThreadInfo threadInfo = threadMXBean.getThreadInfo(t.getId());
+            ThreadInfo threadInfo = threadMxBean.getThreadInfo(t.getId());
             sb.append("{");
             sb.append("name=").append(t.getName()).append(",");
             sb.append("id=").append(t.getId()).append(",");
