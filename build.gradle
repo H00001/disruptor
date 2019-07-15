@@ -61,8 +61,8 @@ idea.module {
     scopes.TEST.plus += [ configurations.perfCompile ]
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 12
+targetCompatibility = 12
 
 
 compileJava {

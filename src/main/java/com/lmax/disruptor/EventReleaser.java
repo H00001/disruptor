@@ -15,6 +15,7 @@
  */
 package com.lmax.disruptor;
 
+@FunctionalInterface
 public interface EventReleaser
 {
     void release();
