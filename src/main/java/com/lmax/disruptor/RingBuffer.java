@@ -154,7 +154,7 @@ public final class RingBuffer<E> extends AbstractRingBufferFields<E> implements 
             WaitStrategy waitStrategy) {
         SingleProducerSequencer sequencer = new SingleProducerSequencer(bufferSize, waitStrategy);
 
-        return new RingBuffer<E>(factory, sequencer);
+        return new RingBuffer<>(factory, sequencer);
     }
 
     /**
